@@ -17,17 +17,21 @@ var charToUse;
   charUppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 //Numeric characters
-  charNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0,];
+  charNumber = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 //Special Characters
   charSpecial = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"]; 
 
-  var getRandomChar;
-
+  
+  function  getRandomChar(arr) {
+    var passwordindex = Math.floor(Math.random() * arr.length);
+    var randomelement = arr[passwordindex];
+    return randomelement;
+    }
 
 function generatePassword(){
   
-  var getRandomChar;
+  // var getRandomChar;
 
 charCount = parseInt(window.prompt("How many characters would you like in your password? Please choose between 8 and 128"))
   
@@ -48,44 +52,54 @@ if (charCount < 8 || charCount > 128){
  if (!charLowercase && !charNumber && !charSpecial && !charUppercase) {
       charCount = window.alert("You must choose at least one")
       }
+console.log(charCount)
+// else if (charLowercase && charUppercase && charNumber && charSpecial) {
+//   getRandomChar = (charLowercase, charUppercase, charNumber, charSpecial)
+// }
 
-else if (charLowercase && charUppercase && charNumber && charSpecial) {
-  getRandomChar = (charLowercase, charUppercase, charNumber, charSpecial)
-}
+// create an array for possible characters for possilbe characters you can use 
 
 // var password = "";
-// var useLowercase = window.confirm("Should your password contain lowercase characters?")
-// if (useLowercase){
-//   password += getRandomChar(useLowercase);
-//   charToUse.push (useLowercase)
+// var charLowercase = window.confirm("Should your password contain lowercase characters?")
+// if (charLowercase){
+//   password += getRandomChar(charLowercase);
+//   // charToUse.push (charLowercase)
 // }
 
-// var useUppercase = window.confirm("Do you want your password contain uppercase characters?")
-// if (useUppercase){
-//   password += getRandomChar(useUppercase);
-//   charToUse.push (useUppercase);
+// var charUppercase = window.confirm("Do you want your password contain uppercase characters?")
+// if (charUppercase){
+//   password += getRandomChar(charUppercase);
+//   // charToUse.push (charUppercase);
 // }
 
-// var useNumber = window.confirm("Do you want your password to contain numbers?")
-// if (useNumber){
-//   password += getRandomChar(useNumber);
-//   charToUse.push (useNumber)
+// var charNumber = window.confirm("Do you want your password to contain numbers?")
+// if (charNumber){
+//   password += getRandomChar(charNumber);
+//   // charToUse.push (charNumber)
 // }
 
-// var useSpecial = window.confirm("Do you want your password to contain special characters?")
-// if (useSpecial){ 
-//   password += getRandomChar(charSets.special);
-//   charToUse.push (...charSets.special)
+// var charSpecial = window.confirm("Do you want your password to contain special characters?")
+// if (charSpecial){ 
+//   password += getRandomChar(charSpecial);
+//   // charToUse.push (charSpecial)
 // }
-
-  // while(password.length < charCount){
-  //   password += getRandomChar()
-  // }
+var characterPool = []
+if (charNumber){
+  characterPool.concat(charNumber)
 }
-  for 
-    var getRandomChar = password = Math.floor(Math.random() * getRandomChar.length);
-    password.push(getRandomChar);
-  
+console.log(characterPool)
+  while(password.length < charCount){
+    password += getRandomChar(characterPool)
+  }
+console.log(password)
+  return password;
+}
+   
+    // function  getRandomChar(arr) {
+    // var passwordindex = Math.floor(Math.random() * arr.length);
+    // var randomelement = arr[passwordindex];
+    // return randomelement;
+    // }
   
 
 // Write password to the #password input
