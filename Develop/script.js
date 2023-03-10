@@ -1,7 +1,6 @@
 // Assignment Code
 // Global variables used.
 var generateBtn = document.querySelector("#generate");
-var password = [];
 var charLowercase;
 var charUppercase;
 var charNumber;
@@ -11,28 +10,51 @@ var enter;
 var pass;
 // var charToUse;
 
+var characterPool = [
+  
+  //lowercase characters
+ Lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+
+ //uppdercase characters
+  Uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
+ 
+ //Numeric characters
+  Numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+  
+ //Special Characters
+ Special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"],
+ 
+ ];
+ console.log(characterPool);
+
 //lowercase characters
  Lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 //uppdercase characters
-Uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+ Uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 //Numeric characters
-Numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-
+ Numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+ 
 //Special Characters
-Special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"]; 
+Special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
+
+  // function  getRandomChar(arr) {
+  //   var passwordindex = pass[Math.floor(Math.random() * pass.length)];
+  //   var randomelement = pass[passwordindex];
+  //   return randomelement;
+  //   }
 
   function  getRandomChar(arr) {
-    var passwordindex = pass[Math.floor(Math.random() * pass.length)];
-    var randomelement = pass[passwordindex];
+    var passwordindex = [Math.floor(Math.random() * arr.length)];
+    var randomelement = arr[passwordindex];
     return randomelement;
     }
 
 function generatePassword(){
   
-var characterPool;
+
   // var getRandomChar;
 
 charCount = parseInt(window.prompt("How many characters would you like in your password? Please choose between 8 and 128"))
@@ -59,7 +81,7 @@ console.log(charCount);
 
 // 4 prompt oks
 if (charNumber && charLowercase && charUppercase && charSpecial) {
-  pass  = Lowercase.concat(Uppercase, Numeric, Special);
+  pass  = characterPool;
 }
 
 // 3 prompt oks
@@ -123,11 +145,8 @@ else if (charSpecial){
 }
 
 
-
-console.log(characterPool)
-
   while(password.length < charCount){
-    password += getRandomChar(characterPool)
+    password = getRandomChar
   }
 console.log(password)
   return password;
@@ -139,18 +158,20 @@ console.log(password)
     // return randomelement;
     // }
   
-    // function  getRandomChar(arr) {
-    //   var passwordindex = [Math.floor(Math.random() * arr.length)];
-    //   var randomelement = arr[passwordindex];
-    //   return randomelement;
-    //   }
+    
+
+var password = [];
+
+// for (var index = 0; index < enter; index++){
+//   var pickPass = Pass[Math.floor(Math.random() * pass.length)];
+//   password.push(pickPass);
+// }
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   
-
   passwordText.value = password;
 
 }
