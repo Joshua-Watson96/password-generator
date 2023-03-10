@@ -4,7 +4,7 @@ Program to randomly generate a password between 8 and 128 characters ***(NEEDS F
 
 ![Alt Text](./Password-Generator%20image.png)
 
-
+Deployed website: https://joshua-watson96.github.io/password-generator/
 
 
 Acceptance Criteria:
