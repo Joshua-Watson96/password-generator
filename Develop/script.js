@@ -6,26 +6,7 @@ var charUppercase;
 var charNumber;
 var charSpecial;
 var charCount;
-var enter;
 var pass;
-// var charToUse;
-
-var characterPool = [
-  
-  //lowercase characters
- Lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
-
- //uppdercase characters
-  Uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
- 
- //Numeric characters
-  Numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
-  
- //Special Characters
- Special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"],
- 
- ];
- console.log(characterPool);
 
 //lowercase characters
  Lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -37,29 +18,27 @@ var characterPool = [
  Numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
  
 //Special Characters
-Special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+ Special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
 
-  // function  getRandomChar(arr) {
-  //   var passwordindex = pass[Math.floor(Math.random() * pass.length)];
-  //   var randomelement = pass[passwordindex];
-  //   return randomelement;
-  //   }
 
+// Sets the input value and array for the getRandomChar function
   function  getRandomChar(arr) {
-    var passwordindex = [Math.floor(Math.random() * arr.length)];
-    var randomelement = arr[passwordindex];
+    var passwordindex = [Math.floor(Math.random() * getRandomChar.length)];
+    var randomelement = getRandomChar[passwordindex];
     return randomelement;
     }
 
+// Sets the input for the generatePassword function
 function generatePassword(){
-  
-
-  // var getRandomChar;
 
 charCount = parseInt(window.prompt("How many characters would you like in your password? Please choose between 8 and 128"))
   
-if (charCount < 8 || charCount > 128){
+if (!charCount) {
+  window.alert("Please enter a number")
+}
+
+else if (charCount < 8 || charCount > 128){
   window.alert("Has to be between 8 and 128 characters");
   }
 
@@ -76,12 +55,12 @@ if (charCount < 8 || charCount > 128){
  if (!charLowercase && !charNumber && !charSpecial && !charUppercase) {
       charCount = window.alert("You must choose at least one")
       };
-
+// console log for the charCount variable
 console.log(charCount);
 
 // 4 prompt oks
 if (charNumber && charLowercase && charUppercase && charSpecial) {
-  pass  = characterPool;
+  pass  = Numeric.concat(Lowercase, Uppercase, Special);
 }
 
 // 3 prompt oks
@@ -144,37 +123,35 @@ else if (charSpecial){
   pass = Special;
 }
 
-
-  while(password.length < charCount){
-    password = getRandomChar
-  }
-console.log(password)
-  return password;
 }
-   
-    // function  getRandomChar(arr) {
-    // var passwordindex = Math.floor(Math.random() * arr.length);
-    // var randomelement = arr[passwordindex];
+
+   // function  getRandomChar(arr) {
+    // var pickPass = pass[Math.floor(Math.random() * arr.length)];
     // return randomelement;
     // }
-  
+
+    // sets input for password variable
+    var password = "";
     
-
-var password = [];
-
-// for (var index = 0; index < enter; index++){
-//   var pickPass = Pass[Math.floor(Math.random() * pass.length)];
-//   password.push(pickPass);
+// for (var  i = 0; i < charCount; i++) {
+// var randomPass = pass[Math.floor(Math.random() * getRandomChar.length)];
+// var randomPass = document.querySelector("#password")
+// randomPass.value = pass
 // }
+
+
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+   var password = generatePassword()
+   var passwordText = document.querySelector("#password");
   
-  passwordText.value = password;
+  passwordText.value = password
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword) 
+
+
+
