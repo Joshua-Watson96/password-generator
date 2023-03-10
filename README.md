@@ -1,5 +1,12 @@
 # password-generator
 
+Program to randomly generate a password between 8 and 128 characters ***(NEEDS FIXING, WILL BE FIXED, PASSWORD DOESN'T GET GENERATED/DISPLAYED)***
+
+![Alt Text](./Password-Generator%20image.png)
+
+
+
+
 Acceptance Criteria:
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
